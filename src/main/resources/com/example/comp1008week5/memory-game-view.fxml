@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane prefHeight="650.0" prefWidth="1000.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp1008week5.MemoryGameController">
    <children>
       <VBox alignment="CENTER" layoutX="-51.0" layoutY="-23.0" prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -84,10 +83,10 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label fx:id="guessesLabel" prefHeight="39.0" prefWidth="131.0" text="Guesses:" />
-                        <Label fx:id="correctLabel" text="Correct:" GridPane.rowIndex="1" />
-                        <Label text="0" GridPane.columnIndex="1" />
-                        <Label text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label prefHeight="39.0" prefWidth="131.0" text="Guesses:" />
+                        <Label text="Correct:" GridPane.rowIndex="1" />
+                        <Label fx:id="guessesLabel" text="0" GridPane.columnIndex="1" />
+                        <Label fx:id="correctLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <Button mnemonicParsing="false" onAction="#playAgain" text="Play Again" />
