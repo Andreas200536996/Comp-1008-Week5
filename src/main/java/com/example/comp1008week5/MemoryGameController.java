@@ -115,7 +115,7 @@ public class MemoryGameController implements Initializable {
 
     /**
      * This method loops over all the imageView objects and will check if the
-     * card is matched. If it is matched, show the face, if it is not matched, show the back
+     * related card is matched. If it is matched, show the face, if it is not matched, show the back
      */
 
     private void flipAllCards()
@@ -140,6 +140,17 @@ public class MemoryGameController implements Initializable {
 
         guessesLabel.setText(String.valueOf(guesses));
         correctLabel.setText(String.valueOf(correct));
+
+    }
+
+    /**
+     * when this button is clicked, the program will load the
+     * war-game.fxml file
+     * @param event
+     */
+
+    @FXML
+    void playWarGame(ActionEvent event) {
 
     }
 }

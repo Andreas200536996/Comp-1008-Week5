@@ -83,13 +83,14 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label prefHeight="39.0" prefWidth="131.0" text="Guesses:" />
+                        <Label prefHeight="44.0" prefWidth="120.0" text="Guesses:" />
                         <Label text="Correct:" GridPane.rowIndex="1" />
-                        <Label fx:id="guessesLabel" text="0" GridPane.columnIndex="1" />
+                        <Label fx:id="guessesLabel" prefHeight="39.0" prefWidth="0.0" text="0" GridPane.columnIndex="1" />
                         <Label fx:id="correctLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <Button mnemonicParsing="false" onAction="#playAgain" text="Play Again" />
+                  <Button mnemonicParsing="false" onAction="#playWarGame" text="Play War Game" />
                </children>
             </HBox>
          </children>
