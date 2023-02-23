@@ -3,6 +3,7 @@ package com.example.comp1008week5;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
@@ -23,6 +24,12 @@ public class WarGameController implements Initializable {
 
     @FXML
     private ImageView p2ImageView;
+    @FXML
+    private Label winnerLabel;
+    @FXML
+    private Button playButton;
+    @FXML
+    private Button playAgainButton;
     private ArrayList<Card> p1Hand, p2Hand, cardPile;
 
     @FXML
@@ -37,36 +44,43 @@ public class WarGameController implements Initializable {
         else if (p2Hand.size()==0)
             declareWinner("Player 1");
 
-        //player 1 removes top card and adds to pile
-        Card p1Card= p1Hand.remove(0);
-        cardPile.add(p1Card);
-        //display in center pile
-        p1ImageView.setImage(p1Card.getImage());
+        else {
+            //player 1 removes top card and adds to pile
+            Card p1Card= p1Hand.remove(0);
+            cardPile.add(p1Card);
+            //display in center pile
+            p1ImageView.setImage(p1Card.getImage());
 
-        //player 2 removes top card and ads to pile
-        Card p2Card = p1Hand.remove(0);
-        cardPile.add(p2Card);
-        //display in center pile
-        p2ImageView.setImage(p2Card.getImage());
+            //player 2 removes top card and ads to pile
+            Card p2Card = p1Hand.remove(0);
+            cardPile.add(p2Card);
+            //display in center pile
+            p2ImageView.setImage(p2Card.getImage());
 
-        //P1 card value = P2 card value?
-        if (p1Card.getCardValue() == p2Card.getCardValue()){
-            playWarHand();
+            //P1 card value = P2 card value?
+            if (p1Card.getCardValue() == p2Card.getCardValue()){
+                playWarHand();
+            }
+
+            else if (p1Card.getCardValue()>p2Card.getCardValue())//player 1 wins the hand
+            {
+                p1Hand.addAll(cardPile);
+                //clear the center pile
+                cardPile.clear();
+            }
+            else //player 2 wins the hand
+            {
+                p2Hand.addAll(cardPile);
+                //clear the center pile
+                cardPile.clear();
+            }
+
+
+
+            updateLabels();
         }
 
-        else if (p1Card.getCardValue()>p2Card.getCardValue())//player 1 wins the hand
-        {
-            p1Hand.addAll(cardPile);
-        }
-        else //player 2 wins the hand
-        {
-            p2Hand.addAll(cardPile);
-        }
 
-
-        //clear the center pile
-        cardPile.clear();
-        updateLabels();
     }
 
     /**
@@ -105,7 +119,17 @@ public class WarGameController implements Initializable {
     }
 
     private void declareWinner(String winnerName){
-        System.out.println("The winner is " + winnerName);
+        playButton.setDisable(true);
+        playAgainButton.setDisable(false);
+        //make p1 card image invisible
+        p1ImageView.setVisible(false);
+        //make p2 card image invisible
+        p2ImageView.setVisible(false);
+        //make winner label visible and display winner name
+        winnerLabel.setVisible(true);
+        winnerLabel.setText(winnerName + " wins!!");
+
+        updateLabels();
     }
 
     @Override
@@ -113,8 +137,11 @@ public class WarGameController implements Initializable {
         newGame();
     }
 
-
+    @FXML
     private void newGame() {
+        playButton.setDisable(false);
+        playAgainButton.setDisable(true);
+        winnerLabel.setVisible(false);
         p1ImageView.setVisible(false);
         p2ImageView.setVisible(false);
 
@@ -133,6 +160,7 @@ public class WarGameController implements Initializable {
             p1Hand.add(deck.dealTopCard());
             p2Hand.add(deck.dealTopCard());
         }
+        updateLabels();
 
     }
 }
