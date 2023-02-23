@@ -1,14 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.comp1008week5.WarGameController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp1008week5.WarGameController">
+   <children>
+      <BorderPane prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox alignment="CENTER" prefHeight="550.0" prefWidth="241.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Player 1" />
+                  <ImageView fitHeight="281.0" fitWidth="238.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/back_of_card.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="p1CardCountLabel" text="Cards: 26" />
+               </children>
+            </VBox>
+         </left>
+         <right>
+            <VBox alignment="CENTER" prefHeight="550.0" prefWidth="247.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Player 2" />
+                  <ImageView fitHeight="312.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/back_of_card.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="p2CardCountLabel" prefHeight="39.0" prefWidth="136.0" text="Cards: 26" />
+               </children>
+            </VBox>
+         </right>
+         <center>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="p1ImageView" fitHeight="278.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/2_of_hearts.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="p2ImageView" fitHeight="273.0" fitWidth="262.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/2_of_hearts.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </center>
+         <bottom>
+            <Button mnemonicParsing="false" text="Play Next Hand" BorderPane.alignment="CENTER" />
+         </bottom>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </BorderPane>
+   </children>
 </AnchorPane>
